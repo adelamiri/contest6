@@ -57,8 +57,8 @@ public class Q1Orchestrator {
 
     private String generateResponse(List<Boolean> v) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < v.size(); i++) {
-            if (v.get(i)) {
+        for (Boolean aBoolean : v) {
+            if (aBoolean) {
                 sb.append('1');
 
             } else

@@ -35,7 +35,7 @@ public class Q2Orchestrator {
                 """;
 
         Dateset2 inputDataset = dataReader.getInputDataset(pointsString);
-        solve(n, n, inputDataset.getData());
+        solve(n, n, inputDataset.data());
 
         generate(5);
         generate(10);

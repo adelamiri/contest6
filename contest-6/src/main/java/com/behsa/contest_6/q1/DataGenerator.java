@@ -41,10 +41,6 @@ public class DataGenerator {
         return matrix;
     }
 
-    private static boolean valid(int value) {
-        return false;
-    }
-
     private static int getValue(Boolean speak, Boolean about) {
         int value;
         value = VALUES[RANDOM.nextInt(VALUES.length)];
@@ -86,8 +82,7 @@ public class DataGenerator {
 
     private boolean valid(List<List<Integer>> lists) {
         int n = lists.size() / 3;
-        for (int i = 0; i < lists.size(); i++) {
-            List<Integer> integers = lists.get(i);
+        for (List<Integer> integers : lists) {
             int count = 0;
             for (Integer num : integers) {
                 if (num != null && num == -1) {

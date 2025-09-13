@@ -4,21 +4,6 @@ import java.util.*;
 
 public class BooleanHypotheses {
 
-    public static Map<String, List<Boolean>> generateAllHypotheses(int n) {
-        Map<String, List<Boolean>> hypotheses = new LinkedHashMap<>();
-        int total = 1 << n; // 2^n حالت
-
-        for (int i = 0; i < total; i++) {
-            List<Boolean> state = new ArrayList<>();
-            for (int j = n - 1; j >= 0; j--) {
-                state.add((i & (1 << j)) != 0);
-            }
-            hypotheses.put("H" + (i + 1), state);
-        }
-
-        return hypotheses;
-    }
-
 
     // تولید همه حالت‌ها با یک سوم false و بقیه true
     public static Map<String, List<Boolean>> generateHypotheses(int n) {

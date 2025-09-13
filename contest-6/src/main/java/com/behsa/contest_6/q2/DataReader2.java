@@ -13,7 +13,7 @@ public class DataReader2 {
         ObjectMapper mapper = new ObjectMapper();
         List<int[]> data = mapper.readValue(
                 input,
-                new TypeReference<List<int[]>>() {
+                new TypeReference<>() {
                 }
         );
         return new Dateset2(data);

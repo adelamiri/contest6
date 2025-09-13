@@ -5,24 +5,6 @@ import java.util.List;
 
 public class MatrixFromPoints {
 
-    // تولید ماتریس با نقاط مشخص
-    public static int[][] generateMatrix(int n, int m, List<int[]> points) {
-        int[][] matrix = new int[n][m];
-
-        for (int[] point : points) {
-            int row = point[0];
-            int col = point[1];
-
-            if (row < 0 || row >= n || col < 0 || col >= m) {
-                throw new IllegalArgumentException("نقطه خارج از محدوده ماتریس است: (" + row + "," + col + ")");
-            }
-
-            matrix[row][col] = 1;
-        }
-
-        return matrix;
-    }
-
     public static int[][] generateMatrixWithPaths(int n, int m, List<int[]> points) {
         int[][] matrix = new int[n][m];
 
@@ -68,40 +50,6 @@ public class MatrixFromPoints {
         }
     }
 
-    private static void markGridPath(int[][] matrix, int[] start, int[] end) {
-        int x = start[0];
-        int y = start[1];
-
-        // حرکت به سمت ردیف مقصد
-        int dx = Integer.compare(end[0], x);
-        while (x != end[0]) {
-            x += dx;
-            matrix[x][y] = 1;
-        }
-
-        // حرکت به سمت ستون مقصد
-        int dy = Integer.compare(end[1], y);
-        while (y != end[1]) {
-            y += dy;
-            matrix[x][y] = 1;
-        }
-    }
-
-    private static void markPath(int[][] matrix, int[] start, int[] end) {
-        int x0 = start[0], y0 = start[1];
-        int x1 = end[0], y1 = end[1];
-
-        int dx = Integer.compare(x1, x0); // -1,0,1
-        int dy = Integer.compare(y1, y0); // -1,0,1
-
-        int x = x0, y = y0;
-        while (x != x1 || y != y1) {
-            x += dx;
-            y += dy;
-            matrix[x][y] = 1;
-        }
-    }
-
     // چاپ ماتریس
     public static void printMatrix(int[][] matrix) {
         int r = 0;
@@ -112,9 +60,9 @@ public class MatrixFromPoints {
 
     public static int sumMatrix(int[][] matrix) {
         int sum = 0;
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                sum += matrix[i][j];
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                sum += anInt;
             }
         }
         return sum;

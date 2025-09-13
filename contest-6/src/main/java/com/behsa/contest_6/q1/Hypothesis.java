@@ -1,12 +1,8 @@
 package com.behsa.contest_6.q1;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.List;
 
 public class Hypothesis {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Hypothesis.class);
 
     public static boolean evaluate(List<Boolean> h, Dateset inputDataset) {
         List<List<Integer>> lists = inputDataset.cloneData();
@@ -27,8 +23,7 @@ public class Hypothesis {
     }
 
     private static boolean evaluate(List<Boolean> h, List<List<Integer>> lists) {
-        for (int i = 0; i < lists.size(); i++) {
-            List<Integer> record = lists.get(i);
+        for (List<Integer> record : lists) {
             for (int j = 0, recordSize = record.size(); j < recordSize; j++) {
                 Integer integer = record.get(j);
                 if (integer == 0)
